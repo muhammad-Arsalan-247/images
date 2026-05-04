@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Muhammad Arsalan - Google Certified Business Intelligence Analyst & AI Engineer. Portfolio featuring Power BI Dashboards, Case Studies, SQL Projects, and 54 Python notebooks."/>
+  <meta name="keywords" content="AI Engineer, Data Analyst, Power BI, Python, SQL, Machine Learning, Business Intelligence"/>
+  <meta name="author" content="Muhammad Arsalan"/>
+  
+  <!-- Open Graph Tags for LinkedIn/Social Media Previews -->
+  <meta property="og:title" content="Muhammad Arsalan | AI Engineer & Business Intelligence Analyst"/>
+  <meta property="og:description" content="Google Certified BI Professional with 2+ years experience in Power BI, Python, SQL, and Machine Learning. 54+ projects portfolio."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://raw.githubusercontent.com/muhammad-Arsalan-247/images/main/linkedin_dp%20(2).jpg"/>
+  <meta property="og:url" content="https://muhammad-arsalan-247.github.io/portfolio/"/>
+  
+  <title>Muhammad Arsalan | AI Engineer & Business Intelligence Analyst</title>
+  
+  <!-- PDF.js Library with Worker -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+  </script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --accent-primary: #3b82f6;
+      --accent-secondary: #6366f1;
+      --accent-gradient: linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6);
+      --border-color: #e2e8f0;
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --radius-lg: 1rem;
+      --radius-md: 0.75rem;
+      --radius-full: 9999px;
+      --spacing-xs: 0.25rem;
+      --spacing-sm: 0.5rem;
+      --spacing-md: 1rem;
+      --spacing-lg: 1.5rem;
+      --spacing-xl: 2rem;
+      --spacing-2xl: 3rem;
+      --font-sans: 'Inter', sans-serif;
+      --container-max: 1400px;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-tertiary: #334155;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #64748b;
+      --accent-primary: #60a5fa;
+      --accent-secondary: #818cf8;
+      --accent-gradient: linear-gradient(135deg, #60a5fa, #818cf8, #a78bfa);
+      --border-color: #334155;
+      --card-bg: rgba(30, 41, 59, 0.85);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.5; transition: all 0.3s; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--spacing-lg); }
+    .section { padding: var(--spacing-2xl) 0; border-top: 1px solid var(--border-color); }
+    .section-title { font-family: var(--font-sans); font-size: 2rem; font-weight: 700; margin-bottom: var(--spacing-lg); background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+    .btn { display: inline-flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-md) var(--spacing-xl); font-weight: 600; border-radius: var(--radius-full); text-decoration: none; transition: all 0.3s; background: var(--accent-gradient); color: white; border: none; cursor: pointer; }
+    .btn-outline { background: transparent; border: 2px solid var(--accent-primary); color: var(--accent-primary); }
+    .btn-small { padding: var(--spacing-sm) var(--spacing-lg); font-size: 0.875rem; }
+
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: var(--spacing-md) 0; background: rgba(255,255,255,0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-color); transition: all 0.3s; }
+    [data-theme="dark"] .navbar { background: rgba(15,23,42,0.9); }
+    .navbar.scrolled { padding: var(--spacing-sm) 0; box-shadow: var(--shadow-md); }
+    .navbar-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-md); }
+    .logo { font-family: var(--font-sans); font-size: 1.5rem; font-weight: 700; text-decoration: none; color: var(--text-primary); }
+    .logo span { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: var(--spacing-lg); list-style: none; flex-wrap: wrap; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent-primary); }
+    .nav-actions { display: flex; align-items: center; gap: var(--spacing-md); }
+    .theme-toggle { background: var(--bg-tertiary); border: none; width: 44px; height: 44px; border-radius: var(--radius-full); cursor: pointer; font-size: 1.25rem; }
+    .mobile-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-primary); }
+
+    .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at top right, rgba(59,130,246,0.15) 0%, transparent 50%), radial-gradient(ellipse at bottom left, rgba(99,102,241,0.12) 0%, transparent 50%); z-index: -1; }
+    .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-2xl); align-items: center; }
+    .hero-text h1 { font-family: var(--font-sans); font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 700; line-height: 1.2; margin-bottom: var(--spacing-lg); background: linear-gradient(135deg, var(--text-primary), var(--accent-primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .profile-frame { width: 280px; height: 280px; border-radius: var(--radius-lg); background: var(--accent-gradient); padding: 4px; margin: 0 auto; }
+    .profile-image { width: 100%; height: 100%; border-radius: calc(var(--radius-lg) - 4px); background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .profile-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-lg); margin: var(--spacing-2xl) 0; }
+    .stat-card { text-align: center; padding: var(--spacing-lg); background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-color); }
+    .stat-number { font-size: 2rem; font-weight: 700; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .project-category { margin-bottom: var(--spacing-lg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-secondary); }
+    .category-main { padding: var(--spacing-lg); cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--bg-secondary); transition: all 0.3s; user-select: none; }
+    .category-main:hover { background: var(--bg-tertiary); }
+    .category-title { font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: var(--spacing-sm); }
+    .category-count { background: var(--accent-gradient); padding: 2px 10px; border-radius: var(--radius-full); font-size: 0.75rem; color: white; }
+    .category-arrow { font-size: 1.2rem; transition: transform 0.3s; display: inline-block; }
+    .category-projects-list { display: block; padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg); background: var(--bg-primary); }
+    
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: var(--spacing-lg); }
+    .project-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.3s; }
+    .project-header { padding: var(--spacing-md) var(--spacing-lg); cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--bg-secondary); transition: all 0.2s; }
+    .project-header:hover { background: var(--bg-tertiary); }
+    .project-preview { width: 48px; height: 48px; background: var(--accent-gradient); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-right: var(--spacing-md); flex-shrink: 0; }
+    .project-info { flex: 1; }
+    .project-name { font-weight: 700; font-size: 0.95rem; margin-bottom: var(--spacing-xs); color: var(--text-primary); line-height: 1.3; }
+    .project-desc { font-size: 0.75rem; color: var(--text-secondary); }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 4px; margin-top: var(--spacing-sm); }
+    .tech-badge { padding: 4px 10px; background: var(--bg-tertiary); border-radius: var(--radius-full); font-size: 0.7rem; color: var(--accent-primary); font-weight: 500; }
+    .project-arrow { font-size: 1rem; transition: transform 0.3s; color: var(--text-muted); flex-shrink: 0; }
+    .project-content { display: none; border-top: 1px solid var(--border-color); background: var(--bg-primary); padding: var(--spacing-md); }
+    .project-content.expanded { display: block; }
+    
+    .pdf-container { width: 100%; height: 550px; overflow-y: auto; background: var(--bg-primary); border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+    .pdf-canvas { width: 100%; height: auto; display: block; margin: 0 auto; }
+    .pdf-controls { display: flex; justify-content: center; gap: var(--spacing-sm); padding: var(--spacing-sm); background: var(--bg-tertiary); border-radius: var(--radius-md); margin-bottom: var(--spacing-sm); flex-wrap: wrap; }
+    .pdf-controls button { padding: var(--spacing-xs) var(--spacing-md); background: var(--accent-primary); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; font-size: 0.7rem; }
+    .pdf-controls button:hover { background: var(--accent-secondary); }
+    .pdf-controls span { font-size: 0.75rem; color: var(--text-secondary); }
+    .pdf-loading { text-align: center; padding: var(--spacing-xl); color: var(--text-muted); }
+    
+    .image-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--spacing-md); margin-bottom: var(--spacing-md); }
+    .image-gallery img { width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border-color); cursor: pointer; transition: transform 0.2s; }
+    .image-gallery img:hover { transform: scale(1.02); }
+    .project-impact { padding: var(--spacing-sm) var(--spacing-md); background: rgba(59,130,246,0.1); border-radius: var(--radius-md); margin-top: var(--spacing-md); font-size: 0.85rem; font-weight: 500; }
+    
+    .filter-container { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); margin-bottom: var(--spacing-lg); }
+    .filter-btn { padding: var(--spacing-sm) var(--spacing-lg); border: 2px solid var(--accent-primary); background: transparent; color: var(--accent-primary); border-radius: var(--radius-full); font-weight: 500; cursor: pointer; transition: all 0.2s; font-size: 0.85rem; }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent-primary); color: white; }
+    
+    .image-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 3000; justify-content: center; align-items: center; cursor: pointer; }
+    .image-modal img { max-width: 90%; max-height: 90%; object-fit: contain; }
+    .image-modal-close { position: absolute; top: 20px; right: 30px; font-size: 40px; color: white; cursor: pointer; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-md); }
+    .skill-card { padding: var(--spacing-lg); text-align: center; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-color); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-2xl); }
+    .contact-form { padding: var(--spacing-xl); background: var(--card-bg); border-radius: var(--radius-lg); border: 1px solid var(--border-color); }
+    .form-input, .form-textarea { width: 100%; padding: var(--spacing-md); margin-bottom: var(--spacing-md); border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-secondary); color: var(--text-primary); }
+    .footer { text-align: center; padding: var(--spacing-xl); border-top: 1px solid var(--border-color); margin-top: var(--spacing-2xl); }
+
+    .social-links {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+      flex-wrap: wrap;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-full);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+      border: 1px solid var(--border-color);
+    }
+    .social-link:hover {
+      background: var(--accent-primary);
+      color: white;
+      transform: translateY(-2px);
+      border-color: var(--accent-primary);
+    }
+    .contact-details a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-details a:hover {
+      color: var(--accent-primary);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { position: fixed; top: 70px; left: 0; right: 0; background: var(--bg-primary); flex-direction: column; padding: var(--spacing-lg); transform: translateY(-150%); transition: all 0.3s; z-index: 999; border-bottom: 1px solid var(--border-color); }
+      .nav-links.active { transform: translateY(0); }
+      .mobile-toggle { display: block; }
+      .hero-content, .contact-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-image { order: -1; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .profile-frame { width: 200px; height: 200px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .image-gallery { grid-template-columns: 1fr; }
+      .pdf-container { height: 400px; }
+      .social-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="logo"><span>M.Arsalan</span></a>
+      <button class="mobile-toggle" id="mobileToggle">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+        <a href="https://raw.githubusercontent.com/muhammad-Arsalan-247/images/main/Muhammad_Arsalan_CV.pdf" download class="btn btn-small" id="downloadCvBtn">📄 Download CV</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <span class="subtitle">Google Certified BI Professional | AI Engineer</span>
+        <h1>Muhammad Arsalan<br>Data Analytics & AI</h1>
+        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">Power BI Developer | SQL Expert | Python Automation | LLM Integration — 9 Case Studies, 10+ SQL Projects, 54 Python Notebooks.</p>
+        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="profile-frame">
+          <div class="profile-image">
+            <img src="https://raw.githubusercontent.com/muhammad-Arsalan-247/images/main/linkedin_dp%20(2).jpg" alt="Muhammad Arsalan" onerror="this.src='https://placehold.co/400x400/3b82f6/white?text=MA'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">3</div><div>Power BI Dashboards</div></div>
+      <div class="stat-card"><div class="stat-number">9</div><div>Case Studies</div></div>
+      <div class="stat-card"><div class="stat-number">10+</div><div>SQL Projects</div></div>
+      <div class="stat-card"><div class="stat-number">54</div><div>Python Notebooks</div></div>
+    </div>
+  </div>
+
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-2xl);">
+        <div><p style="color: var(--text-secondary); line-height: 1.6;">Google-certified Business Intelligence Analyst and AI Engineer with <strong>2+ years</strong> of professional experience delivering data-driven solutions at <strong>Signx Solution</strong> and <strong>PayFast</strong>. I specialize in Power BI dashboard development, SQL data analysis, Python automation, and ETL pipeline design.</p><p style="margin-top: var(--spacing-md); color: var(--text-secondary);">At Signx Solution, I reduced manual reporting time by 70% using interactive dashboards. At PayFast, I analyzed 1M+ transactions and built ETL pipelines improving efficiency by 40%.</p></div>
+        <div style="background: var(--bg-secondary); padding: var(--spacing-xl); border-radius: var(--radius-lg);"><h3 style="margin-bottom: var(--spacing-md);">Core Competencies</h3><ul style="list-style: none;"><li style="margin-bottom: var(--spacing-sm);">✓ Business Intelligence & Visualization</li><li style="margin-bottom: var(--spacing-sm);">✓ Data Analysis & SQL Optimization</li><li style="margin-bottom: var(--spacing-sm);">✓ Python Automation & ETL Pipelines</li><li>✓ AI & Machine Learning Integration</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects" style="background: var(--bg-secondary);">
+    <div class="container">
+      <h2 class="section-title">All Projects</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xl);">Click on any project to expand and view details.</p>
+      
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="powerbi">Power BI</button>
+        <button class="filter-btn" data-filter="sql">SQL</button>
+        <button class="filter-btn" data-filter="python">Python</button>
+      </div>
+      
+      <div id="projectsContainer"></div>
+    </div>
+  </section>
+
+  <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+    <span class="image-modal-close">&times;</span>
+    <img id="modalImage" src="" alt="">
+  </div>
+
+  <section class="section" id="skills" style="background: var(--bg-secondary);">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card"><div class="skill-icon">📊</div><div>Power BI & DAX</div><small style="color: var(--text-muted);">Data Modeling, Power Query</small></div>
+        <div class="skill-card"><div class="skill-icon">🗄️</div><div>PostgreSQL</div><small style="color: var(--text-muted);">Window Functions, CTEs</small></div>
+        <div class="skill-card"><div class="skill-icon">🐍</div><div>Python</div><small style="color: var(--text-muted);">Pandas, NumPy, Scikit-learn</small></div>
+        <div class="skill-card"><div class="skill-icon">🤖</div><div>TensorFlow</div><small style="color: var(--text-muted);">Computer Vision, NLP</small></div>
+        <div class="skill-card"><div class="skill-icon">⚙️</div><div>ETL Pipelines</div><small style="color: var(--text-muted);">Data Integration & Automation</small></div>
+        <div class="skill-card"><div class="skill-icon">📈</div><div>Statistical Analysis</div><small style="color: var(--text-muted);">A/B Testing, Forecasting</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section with Formspree Integration -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Let's Connect</h2>
+      <div class="contact-grid">
+        <div>
+          <div style="margin-bottom: var(--spacing-lg);">
+            <h3>📍 Karachi, Pakistan</h3>
+            <p style="color: var(--text-secondary);">Open to Remote Opportunities</p>
+          </div>
+          <div style="margin-bottom: var(--spacing-lg);">
+            <h3>📧 <a href="mailto:muhammadarsalan1919@gmail.com">muhammadarsalan1919@gmail.com</a></h3>
+          </div>
+          <div class="contact-details">
+            <h3>🔗 <a href="https://linkedin.com/in/muhammadarsalan1919" target="_blank">linkedin.com/in/muhammadarsalan1919</a></h3>
+            <h3>🐙 <a href="https://github.com/muhammad-Arsalan-247" target="_blank">github.com/muhammad-Arsalan-247</a></h3>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://linkedin.com/in/muhammadarsalan1919" target="_blank" class="social-link">
+              <span>🔗</span> LinkedIn
+            </a>
+            <a href="https://github.com/muhammad-Arsalan-247" target="_blank" class="social-link">
+              <span>🐙</span> GitHub
+            </a>
+            <a href="mailto:muhammadarsalan1919@gmail.com" class="social-link">
+              <span>📧</span> Email
+            </a>
+          </div>
+        </div>
+        
+        <!-- Formspree Contact Form - YOUR FORM ID ADDED -->
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvzlkbqd" method="POST">
+          <input type="text" class="form-input" name="name" placeholder="Your Name" required>
+          <input type="email" class="form-input" name="email" placeholder="Email" required>
+          <textarea class="form-textarea" name="message" rows="4" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn" style="width:100%">Send Message</button>
+          <p id="formStatus" style="margin-top: var(--spacing-md); font-size: 0.85rem; text-align: center;"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Muhammad Arsalan — AI Engineer | Data Analyst | Power BI Developer</p>
+      <p style="font-size: 0.8rem; margin-top: var(--spacing-sm);">
+        <a href="https://linkedin.com/in/muhammadarsalan1919" target="_blank" style="color: var(--accent-primary); text-decoration: none;">LinkedIn</a> | 
+        <a href="https://github.com/muhammad-Arsalan-247" target="_blank" style="color: var(--accent-primary); text-decoration: none;">GitHub</a> | 
+        <a href="mailto:muhammadarsalan1919@gmail.com" style="color: var(--accent-primary); text-decoration: none;">muhammadarsalan1919@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const GITHUB_BASE = 'https://raw.githubusercontent.com/muhammad-Arsalan-247/images/main/';
+    const PDF_BASE = 'https://raw.githubusercontent.com/muhammad-Arsalan-247/images/main/python%20projects%20pdfs/';
+    
+    function img(path) { return GITHUB_BASE + path; }
+
+    // ===== POWER BI DASHBOARDS =====
+    const powerBIDashboards = [
+      { name: "Minnesota DOT Dashboard", tech: ["Power BI", "DAX"], desc: "Transportation performance dashboard tracking KPIs and infrastructure metrics.", impact: "Real-time analytics", images: [img("power%20bi%20dashboard/MINNESOTA DEPARTMENT OF TRANSPORTATION/MINNESOTA DEPARTMENT OF TRANSPORTATION image.PNG")] },
+      { name: "Loan Portfolio Dashboard", tech: ["Power BI", "Financial Analytics"], desc: "Interactive loan analytics for credit risk management.", impact: "3-page analysis", images: [img("power%20bi%20dashboard/loan dashboard/loan dashboard 1.PNG"), img("power%20bi%20dashboard/loan dashboard/loan dashboard 2.PNG"), img("power%20bi%20dashboard/loan dashboard/loan dashboard 3.PNG")] },
+      { name: "Mobile Sales Dashboard", tech: ["Power BI", "Sales Analytics"], desc: "Dynamic sales dashboard for revenue tracking.", impact: "Sales forecasting", images: [img("power%20bi%20dashboard/mobile sale dashboard/mobile sale dashboard 1.PNG")] }
+    ];
+
+    // ===== POWER BI CASE STUDIES =====
+    const powerBICases = [
+      { name: "HR Analytics - Atlas Labs", tech: ["Power BI", "DAX", "Star Schema"], desc: "4-page HR report analyzing attrition rate (16.1%), high-risk departments, and tenure segments.", impact: "70% reduction in reporting time", images: [img("powerbi/1. Case Study - HR Analytics in Power BI/1.png"), img("powerbi/1. Case Study - HR Analytics in Power BI/2.png"), img("powerbi/1. Case Study - HR Analytics in Power BI/3.png"), img("powerbi/1. Case Study - HR Analytics in Power BI/4.png"), img("powerbi/1. Case Study - HR Analytics in Power BI/conditional_column.png"), img("powerbi/1. Case Study - HR Analytics in Power BI/data modeling.png")] },
+      { name: "Customer Churn Analysis", tech: ["Power BI", "Python", "Scikit-Learn"], desc: "Churn prediction with ML insights. Improved customer retention by 15%.", impact: "15% retention improvement", images: [img("powerbi/2. Case Study - Analyzing customer Churn in PowerBI/1.png"), img("powerbi/2. Case Study - Analyzing customer Churn in PowerBI/2.png"), img("powerbi/2. Case Study - Analyzing customer Churn in PowerBI/3.png"), img("powerbi/2. Case Study - Analyzing customer Churn in PowerBI/4.png")] },
+      { name: "Healthcare Data Analytics", tech: ["Power BI", "SQL", "DAX"], desc: "Hospital efficiency dashboard analyzing length-of-stay drivers.", impact: "12% reduction in avg LOS", images: [img("powerbi/3. Case study-Analyzing Healthcare data in Power BI/1.png"), img("powerbi/3. Case study-Analyzing Healthcare data in Power BI/2.png"), img("powerbi/3. Case study-Analyzing Healthcare data in Power BI/3.png"), img("powerbi/3. Case study-Analyzing Healthcare data in Power BI/4.png"), img("powerbi/3. Case study-Analyzing Healthcare data in Power BI/data model.png")] },
+      { name: "Supply Chain Analytics", tech: ["Power BI", "What-If Parameters"], desc: "Procurement decision support with cost-volume curves.", impact: "18% cost reduction", images: [img("powerbi/4. Case Study - Supply Chain Analytics in Power BI/1.png"), img("powerbi/4. Case Study - Supply Chain Analytics in Power BI/2.png"), img("powerbi/4. Case Study - Supply Chain Analytics in Power BI/3.png"), img("powerbi/4. Case Study - Supply Chain Analytics in Power BI/data model.png")] },
+      { name: "Job Market Analysis", tech: ["Power BI", "Market Analytics"], desc: "10-page dashboard covering skills demand and role trends.", impact: "Recruitment optimization", images: [img("powerbi/5. Case Study - Analyzing Job Market Data in Power BI/1.png"), img("powerbi/5. Case Study - Analyzing Job Market Data in Power BI/2.png"), img("powerbi/5. Case Study - Analyzing Job Market Data in Power BI/3.png"), img("powerbi/5. Case Study - Analyzing Job Market Data in Power BI/4.png"), img("powerbi/5. Case Study - Analyzing Job Market Data in Power BI/5.png"), img("powerbi/5. Case Study - Analyzing Job Market Data in Power BI/6.png"), img("powerbi/5. Case Study - Analyzing Job Market Data in Power BI/7.png"), img("powerbi/5. Case Study - Analyzing Job Market Data in Power BI/8.png"), img("powerbi/5. Case Study - Analyzing Job Market Data in Power BI/9.png"), img("powerbi/5. Case Study - Analyzing Job Market Data in Power BI/10.png"), img("powerbi/5. Case Study - Analyzing Job Market Data in Power BI/data model.png")] },
+      { name: "Inventory Analysis", tech: ["Power BI", "DAX"], desc: "5-page retail inventory report with reorder alerts.", impact: "40% excess reduction", images: [img("powerbi/6. Case Study - Inventory Analysis in Power BI/1.png"), img("powerbi/6. Case Study - Inventory Analysis in Power BI/2.png"), img("powerbi/6. Case Study - Inventory Analysis in Power BI/3.png"), img("powerbi/6. Case Study - Inventory Analysis in Power BI/4.png"), img("powerbi/6. Case Study - Inventory Analysis in Power BI/5.png"), img("powerbi/6. Case Study - Inventory Analysis in Power BI/data model.png")] },
+      { name: "E-Commerce Analysis", tech: ["Power BI", "Power Query"], desc: "6-page regional sales dashboard with geographic mapping.", impact: "Executive support", images: [img("powerbi/7. Case Study - Ecommerce Analysis in Power BI/1.png"), img("powerbi/7. Case Study - Ecommerce Analysis in Power BI/2.png"), img("powerbi/7. Case Study - Ecommerce Analysis in Power BI/3.png"), img("powerbi/7. Case Study - Ecommerce Analysis in Power BI/4.png"), img("powerbi/7. Case Study - Ecommerce Analysis in Power BI/5.png"), img("powerbi/7. Case Study - Ecommerce Analysis in Power BI/6.png"), img("powerbi/7. Case Study - Ecommerce Analysis in Power BI/data model.png")] },
+      { name: "Mortgage Trading Analysis", tech: ["Power BI", "Financial Analytics"], desc: "4-page financial dashboard with bid evaluation.", impact: "Data-driven decisions", images: [img("powerbi/8. Case Study - Mortgage Trading Analysis in Power BI/1.png"), img("powerbi/8. Case Study - Mortgage Trading Analysis in Power BI/2.png"), img("powerbi/8. Case Study - Mortgage Trading Analysis in Power BI/3.png"), img("powerbi/8. Case Study - Mortgage Trading Analysis in Power BI/4.png"), img("powerbi/8. Case Study - Mortgage Trading Analysis in Power BI/data model.png")] },
+      { name: "Competitor Sales Analysis", tech: ["Power BI", "DAX"], desc: "Competitive intelligence dashboard.", impact: "Market positioning", images: [img("powerbi/9. Case Study - Competitor Sales Analysis in Power BI/1.png"), img("powerbi/9. Case Study - Competitor Sales Analysis in Power BI/2.png"), img("powerbi/9. Case Study - Competitor Sales Analysis in Power BI/data model.png")] }
+    ];
+
+    // ===== SQL PROJECTS =====
+    const sqlProjects = [
+      { name: "PostgreSQL Sales Analysis", tech: ["PostgreSQL", "CTEs", "Window Functions"], desc: "Complex queries for product performance.", impact: "Product insights", images: [img("sql/1. Analyzing and Formatting PostgreSQL Sales Data/1q.png"), img("sql/1. Analyzing and Formatting PostgreSQL Sales Data/1a.png"), img("sql/1. Analyzing and Formatting PostgreSQL Sales Data/2q.png"), img("sql/1. Analyzing and Formatting PostgreSQL Sales Data/2a.png")] },
+      { name: "EV Charging Habits", tech: ["PostgreSQL", "Window Functions"], desc: "Analysis of 100k+ charging sessions.", impact: "Infrastructure planning", images: [img("sql/2. Analyzing Electric Vehicle Charging Habits/1q.png"), img("sql/2. Analyzing Electric Vehicle Charging Habits/1a.png"), img("sql/2. Analyzing Electric Vehicle Charging Habits/2q.png"), img("sql/2. Analyzing Electric Vehicle Charging Habits/2a.png"), img("sql/2. Analyzing Electric Vehicle Charging Habits/3q.png"), img("sql/2. Analyzing Electric Vehicle Charging Habits/3a.png")] },
+      { name: "Industry Carbon Emissions", tech: ["PostgreSQL"], desc: "Carbon footprint analysis.", impact: "Environmental compliance", images: [img("sql/3. Analyzing Industry Carbon Emissions/q.png"), img("sql/3. Analyzing Industry Carbon Emissions/a.png")] },
+      { name: "Student Performance", tech: ["PostgreSQL", "Window Functions"], desc: "Academic success factor analysis.", impact: "Intervention strategies", images: [img("sql/4. Factors that Fuel Student Performance/q1.png"), img("sql/4. Factors that Fuel Student Performance/a1.png"), img("sql/4. Factors that Fuel Student Performance/q2.png"), img("sql/4. Factors that Fuel Student Performance/a2.png"), img("sql/4. Factors that Fuel Student Performance/q3.png"), img("sql/4. Factors that Fuel Student Performance/a3.png")] },
+      { name: "Video Games Golden Era", tech: ["PostgreSQL"], desc: "Historical game sales analysis.", impact: "Market insights", images: [img("sql/5. When Was the Golden Era of Video Games/1q.png"), img("sql/5. When Was the Golden Era of Video Games/1a.png"), img("sql/5. When Was the Golden Era of Video Games/q2.png"), img("sql/5. When Was the Golden Era of Video Games/a2.png"), img("sql/5. When Was the Golden Era of Video Games/q3.png"), img("sql/5. When Was the Golden Era of Video Games/a3.png")] },
+      { name: "World's Oldest Businesses", tech: ["PostgreSQL", "JOINs"], desc: "Historical business analysis.", impact: "Business insights", images: [img("sql/6. Uncovering the World_s Oldest Businesses/q1.png"), img("sql/6. Uncovering the World_s Oldest Businesses/a1.png"), img("sql/6. Uncovering the World_s Oldest Businesses/q2.png"), img("sql/6. Uncovering the World_s Oldest Businesses/a2.png"), img("sql/6. Uncovering the World_s Oldest Businesses/q3.png"), img("sql/6. Uncovering the World_s Oldest Businesses/a3.png")] },
+      { name: "NGO Impact Analysis", tech: ["PostgreSQL"], desc: "Non-profit initiative assessment.", impact: "Strategy optimization", images: [img("sql/7. Impact Analysis of GoodThought NGO Initiatives/q1.png"), img("sql/7. Impact Analysis of GoodThought NGO Initiatives/a1.png"), img("sql/7. Impact Analysis of GoodThought NGO Initiatives/q2.png"), img("sql/7. Impact Analysis of GoodThought NGO Initiatives/a2.png")] },
+      { name: "International Debt", tech: ["PostgreSQL"], desc: "Global debt pattern analysis.", impact: "Economic insights", images: [img("sql/8. Analyze International Debt Statistics/q1a1.png"), img("sql/8. Analyze International Debt Statistics/q2a2.png"), img("sql/8. Analyze International Debt Statistics/q3a3.png")] },
+      { name: "Baby Names Trends", tech: ["PostgreSQL"], desc: "US baby name trend analysis.", impact: "Demographic insights", images: [img("sql/9. Exploring Trends in American Baby Names/q1a1.png"), img("sql/9. Exploring Trends in American Baby Names/a2.png"), img("sql/9. Exploring Trends in American Baby Names/q3a3.png"), img("sql/9. Exploring Trends in American Baby Names/q2.png")] },
+      { name: "Motorcycle Part Sales", tech: ["PostgreSQL"], desc: "Parts sales pattern analysis.", impact: "Inventory optimization", images: [img("sql/10. Analyzing Motorcycle Part Sales/q1.png"), img("sql/10. Analyzing Motorcycle Part Sales/a1.png")] }
+    ];
+
+    // ===== PYTHON PROJECTS =====
+    const pythonProjects = [
+      { name: "📊 Word Frequency in Moby Dick", pdf: "1.pdf", tech: ["Python", "NLP", "BeautifulSoup", "NLTK"], desc: "Web scraping and text analysis of Moby Dick to find word frequency patterns." },
+      { name: "📈 Data-Driven Product Management", pdf: "2.pdf", tech: ["Python", "Pandas", "Matplotlib"], desc: "Market analysis for digital fitness classes using Google Trends data." },
+      { name: "🌾 Crop Prediction with Machine Learning", pdf: "3.pdf", tech: ["Python", "Scikit-Learn", "Classification"], desc: "Multi-class classification to predict optimal crops based on soil conditions." },
+      { name: "💊 Drug Safety Hypothesis Testing", pdf: "4.pdf", tech: ["Python", "StatsModels", "Hypothesis Testing"], desc: "Statistical analysis of drug adverse effects using z-tests and chi-square tests." },
+      { name: "🥑 Avocado Toast Supply Chain", pdf: "5.pdf", tech: ["Python", "Pandas", "Supply Chain"], desc: "Supply chain analysis tracing origins of avocado, olive oil, and sourdough." },
+      { name: "🐧 Penguin Species Clustering", pdf: "6.pdf", tech: ["Python", "K-Means", "Scikit-Learn"], desc: "Unsupervised learning to identify penguin species using K-means clustering." },
+      { name: "🏪 Walmart E-commerce Pipeline", pdf: "7.pdf", tech: ["Python", "Pandas", "ETL"], desc: "Building a complete ETL pipeline for Walmart sales data analysis." },
+      { name: "💰 Financial Ratios Analysis", pdf: "8.pdf", tech: ["Python", "Pandas", "Financial Analysis"], desc: "Merging balance sheet and income statement to compute financial ratios." },
+      { name: "🚔 LA Crime Analysis", pdf: "9.pdf", tech: ["Python", "Pandas", "Seaborn"], desc: "Analyzing crime patterns in Los Angeles to identify peak crime hours." },
+      { name: "🐛 Sales Data Debugging", pdf: "10.pdf", tech: ["Python", "Pandas", "Debugging"], desc: "Debugging a sales data pipeline and fixing data integrity issues." },
+      { name: "📞 Telecom Churn Prediction", pdf: "11.pdf", tech: ["Python", "Scikit-Learn", "Random Forest"], desc: "Predicting customer churn in Indian telecom sector using ML models." },
+      { name: "🔋 EV Charging Analysis", pdf: "12.pdf", tech: ["Python", "Pandas", "Matplotlib"], desc: "Analyzing trends in EV charging infrastructure and vehicle sales." },
+      { name: "🐦 Twitter Network Analysis", pdf: "13.pdf", tech: ["Python", "NetworkX", "Graph Theory"], desc: "Analyzing Twitter follower networks to find influencers and connections." },
+      { name: "🧼 Dr. Semmelweis and the Importance of Handwashing", pdf: "14.pdf", tech: ["Python", "Data Analysis", "Statistics"], desc: "Historical data analysis demonstrating the importance of handwashing in healthcare." },
+      { name: "📊 Understanding Search Interest with Google Trends", pdf: "15.pdf", tech: ["Python", "API", "Trend Analysis"], desc: "Analysis of search interest patterns using Google Trends data." },
+      { name: "🖼️ Image Processing for Object Detection Models", pdf: "16.pdf", tech: ["Python", "Computer Vision", "Image Processing"], desc: "Image preprocessing techniques for object detection model training." },
+      { name: "👕 E-Commerce Clothing Classifier with Keras", pdf: "17.pdf", tech: ["Python", "Keras", "Deep Learning", "CNN"], desc: "CNN-based clothing classifier for e-commerce product categorization." },
+      { name: "🏫 NYC Public School Test Scores", pdf: "18.pdf", tech: ["Python", "EDA", "Education Analytics"], desc: "Analysis of NYC public school test scores and performance factors." },
+      { name: "📈 Stock Market Trends with Plotly", pdf: "19.pdf", tech: ["Python", "Plotly", "Finance"], desc: "Interactive stock market trend visualization using Plotly dashboards." },
+      { name: "😴 Getting a Good Night's Sleep", pdf: "20.pdf", tech: ["Python", "Health Analytics", "Correlation"], desc: "Analysis of factors affecting sleep quality and pattern identification." },
+      { name: "⚾ Baseball Player Statistics", pdf: "21.pdf", tech: ["Python", "Sports Analytics", "Visualization"], desc: "Interactive visualizations for baseball player performance comparison." },
+      { name: "🚗 Car Insurance Claim Outcomes", pdf: "22.pdf", tech: ["Python", "Classification", "Risk Modeling"], desc: "Predictive model for car insurance claim likelihood and severity." },
+      { name: "⚠️ Detecting Anomalous Transactions", pdf: "23.pdf", tech: ["Python", "Anomaly Detection", "Fraud Detection"], desc: "Statistical and ML methods for detecting fraudulent transactions." },
+      { name: "⚽ Analyzing Online Sports Revenue", pdf: "24.pdf", tech: ["Python", "Revenue Analytics", "Sports Business"], desc: "Revenue pattern analysis for online sports platforms." },
+      { name: "📱 Creating Functions to Register App Users", pdf: "25.pdf", tech: ["Python", "Registration", "Functions"], desc: "Function-based user registration and data validation system." },
+      { name: "🎬 Investigating Netflix Movies", pdf: "26.pdf", tech: ["Python", "EDA", "Visualization"], desc: "Exploratory data analysis on Netflix content library and trends." },
+      { name: "🏆 Nobel Prize Winners Visualization", pdf: "27.pdf", tech: ["Python", "Visualization", "Historical Data"], desc: "Interactive visualization of Nobel Prize historical trends." },
+      { name: "🌊 Analyzing River Thames Water Levels", pdf: "28.pdf", tech: ["Python", "Time Series", "Environmental"], desc: "Historical water level analysis and trend detection for flood prediction." },
+      { name: "🚕 Taxi Route Optimization with RL", pdf: "29.pdf", tech: ["Python", "Reinforcement Learning", "Optimization"], desc: "RL-based taxi route optimization for reduced travel time." },
+      { name: "💼 Tech Talent Recruiting with Regex", pdf: "30.pdf", tech: ["Python", "Regex", "Text Processing"], desc: "Regular expression based resume parsing and candidate matching." },
+      { name: "🧱 History of Lego Sets", pdf: "31.pdf", tech: ["Python", "EDA", "Trend Analysis"], desc: "Historical analysis of Lego product lines and theme evolution." },
+      { name: "🛒 Will This Customer Purchase Your Product?", pdf: "32.pdf", tech: ["Python", "Classification", "Prediction"], desc: "Predictive model for customer purchase likelihood." },
+      { name: "🔍 Reveal Categories Found in Data", pdf: "33.pdf", tech: ["Python", "Clustering", "Pattern Discovery"], desc: "Unsupervised learning to discover hidden categories in datasets." },
+      { name: "⚡ Building an ETL Pipeline for Energy Data", pdf: "34.pdf", tech: ["Python", "ETL", "Data Engineering"], desc: "Complete ETL pipeline for energy consumption data processing." },
+      { name: "🐛 Debugging Code", pdf: "35.pdf", tech: ["Python", "Debugging", "Code Quality"], desc: "Systematic approach to code debugging and error resolution." },
+      { name: "📺 Extracting TV Data Insights", pdf: "36.pdf", tech: ["Python", "Data Extraction", "Media Analytics"], desc: "Data extraction and analysis from television broadcast data." },
+      { name: "🤖 Optimize LLMs with Llama Fine-tuning", pdf: "37.pdf", tech: ["Python", "LLM", "Fine-tuning", "Transformers"], desc: "Fine-tuning Llama models for specific NLP tasks and optimization." },
+      { name: "🚗 Analyzing Car Reviews with LLMs", pdf: "38.pdf", tech: ["Python", "LLM", "NLP", "Sentiment Analysis"], desc: "Sentiment analysis of car reviews using Large Language Models." },
+      { name: "🏛️ Uncovering the World's Oldest Businesses", pdf: "39.pdf", tech: ["Python", "Pandas", "Data Analysis"], desc: "Analysis of oldest continuously operating businesses worldwide." },
+      { name: "🌡️ Predicting Temperature in London", pdf: "40.pdf", tech: ["Python", "Time Series", "Forecasting"], desc: "Time series forecasting for London temperature patterns." },
+      { name: "📊 Combating Subscriber Churn with Targeted Marketing", pdf: "41.pdf", tech: ["Python", "Marketing Analytics", "Churn"], desc: "Targeted marketing strategies to reduce subscriber churn." },
+      { name: "🔑 Generating Keywords for Search Campaigns", pdf: "42.pdf", tech: ["Python", "NLP", "SEO"], desc: "Automated keyword generation for digital marketing campaigns." },
+      { name: "📚 What Makes a Good Book?", pdf: "43.pdf", tech: ["Python", "NLP", "Sentiment Analysis"], desc: "Analysis of book attributes that lead to high ratings and reviews." },
+      { name: "📈 Analyze Your Stock Portfolio for Risks and Returns", pdf: "44.pdf", tech: ["Python", "Finance", "Risk Analysis"], desc: "Portfolio risk analysis using Modern Portfolio Theory." },
+      { name: "👥 Consolidating Employee Data", pdf: "45.pdf", tech: ["Python", "HR Analytics", "Data Integration"], desc: "Integration and consolidation of multi-source employee data." },
+      { name: "💳 Predicting Credit Card Approvals", pdf: "46.pdf", tech: ["Python", "Classification", "Scikit-Learn"], desc: "Classification model for automated credit card approval decisions." },
+      { name: "📝 Performing a Code Review", pdf: "47.pdf", tech: ["Python", "Code Review", "Best Practices"], desc: "Systematic code review process and best practices." },
+      { name: "💱 Finding Exchange Rates for International Sales", pdf: "48.pdf", tech: ["Python", "API", "Currency"], desc: "Real-time currency exchange rate tracking for global sales." },
+      { name: "📅 Understanding Subscription Behaviors", pdf: "49.pdf", tech: ["Python", "Cohort Analysis", "User Analytics"], desc: "Analysis of user subscription patterns and retention drivers." },
+      { name: "📝 Building Core Sign-Up Functions", pdf: "50.pdf", tech: ["Python", "Auth", "Validation"], desc: "User validation and registration system implementation." },
+      { name: "🍎 Building a Calorie Intake Calculator", pdf: "51.pdf", tech: ["Python", "Health", "Calculator"], desc: "Personalized calorie intake recommendation system." },
+      { name: "🎬 Predicting Movie Rental Durations", pdf: "52.pdf", tech: ["Python", "Regression", "Prediction"], desc: "Predictive model for movie rental duration based on user behavior." },
+      { name: "🏠 Exploring Airbnb Market Trends", pdf: "53.pdf", tech: ["Python", "Market Analysis", "Pricing"], desc: "Analysis of Airbnb pricing and availability across cities." },
+      { name: "✈️ Analyzing Flight Delays and Cancellations", pdf: "54.pdf", tech: ["Python", "Time Series", "EDA"], desc: "Analysis of flight delay patterns and cancellation causes." }
+    ];
+
+    // PDF Cache
+    const pdfCache = new Map();
+    
+    class PDFViewer {
+      constructor(containerId, pdfUrl, projectName) {
+        this.containerId = containerId;
+        this.pdfUrl = pdfUrl;
+        this.projectName = projectName;
+        this.pdfDoc = null;
+        this.pageNum = 1;
+        this.pageRendering = false;
+        this.pageNumPending = null;
+        this.scale = 1.2;
+        this.cachedPages = new Map();
+      }
+
+      async render() {
+        const container = document.getElementById(this.containerId);
+        if (!container) return;
+        
+        container.innerHTML = `<div class="pdf-loading">📄 Loading ${this.projectName}...<br><br>Please wait.</div>`;
+        
+        try {
+          if (pdfCache.has(this.pdfUrl)) {
+            this.pdfDoc = pdfCache.get(this.pdfUrl);
+          } else {
+            const loadingTask = pdfjsLib.getDocument(this.pdfUrl);
+            this.pdfDoc = await loadingTask.promise;
+            pdfCache.set(this.pdfUrl, this.pdfDoc);
+          }
+          this.renderControls(container);
+          await this.renderPage(this.pageNum, container);
+        } catch (error) {
+          container.innerHTML = `<div class="pdf-loading" style="color: #ef4444;">⚠️ Failed to load PDF: ${this.pdfUrl}</div>`;
+        }
+      }
+
+      renderControls(container) {
+        const controls = document.createElement('div');
+        controls.className = 'pdf-controls';
+        controls.innerHTML = `
+          <button id="prevPage_${this.containerId}">◀ Prev</button>
+          <span><span id="pageNum_${this.containerId}">${this.pageNum}</span> / <span id="pageCount_${this.containerId}">${this.pdfDoc.numPages}</span></span>
+          <button id="nextPage_${this.containerId}">Next ▶</button>
+          <button id="zoomIn_${this.containerId}">🔍+</button>
+          <button id="zoomOut_${this.containerId}">🔍-</button>
+        `;
+        container.appendChild(controls);
+        
+        document.getElementById(`prevPage_${this.containerId}`).addEventListener('click', () => this.onPrevPage());
+        document.getElementById(`nextPage_${this.containerId}`).addEventListener('click', () => this.onNextPage());
+        document.getElementById(`zoomIn_${this.containerId}`).addEventListener('click', () => { this.scale += 0.2; this.renderPage(this.pageNum, container); });
+        document.getElementById(`zoomOut_${this.containerId}`).addEventListener('click', () => { this.scale = Math.max(0.6, this.scale - 0.2); this.renderPage(this.pageNum, container); });
+      }
+
+      async renderPage(num, container) {
+        this.pageRendering = true;
+        
+        let page;
+        if (this.cachedPages.has(num)) {
+          page = this.cachedPages.get(num);
+        } else {
+          page = await this.pdfDoc.getPage(num);
+          this.cachedPages.set(num, page);
+        }
+        
+        const viewport = page.getViewport({ scale: this.scale });
+        const canvas = document.createElement('canvas');
+        canvas.className = 'pdf-canvas';
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        
+        const renderContext = { canvasContext: context, viewport: viewport };
+        await page.render(renderContext).promise;
+        
+        const existingCanvas = container.querySelector('.pdf-canvas');
+        if (existingCanvas) existingCanvas.remove();
+        container.appendChild(canvas);
+        
+        this.pageRendering = false;
+        if (this.pageNumPending !== null) {
+          this.renderPage(this.pageNumPending, container);
+          this.pageNumPending = null;
+        }
+        
+        const pageNumSpan = document.getElementById(`pageNum_${this.containerId}`);
+        if (pageNumSpan) pageNumSpan.textContent = this.pageNum;
+      }
+
+      queueRenderPage(num, container) {
+        if (this.pageRendering) {
+          this.pageNumPending = num;
+        } else {
+          this.renderPage(num, container);
+        }
+      }
+
+      onPrevPage() {
+        if (this.pageNum <= 1) return;
+        this.pageNum--;
+        this.queueRenderPage(this.pageNum, document.getElementById(this.containerId));
+      }
+
+      onNextPage() {
+        if (this.pageNum >= this.pdfDoc.numPages) return;
+        this.pageNum++;
+        this.queueRenderPage(this.pageNum, document.getElementById(this.containerId));
+      }
+    }
+
+    function createImageGallery(images) {
+      return `<div class="image-gallery">${images.map(imgUrl => `<img src="${imgUrl}" alt="Screenshot" loading="lazy" onclick="event.stopPropagation(); openImageModal('${imgUrl}')">`).join('')}</div>`;
+    }
+
+    function createProjectCard(project, id) {
+      return `
+        <div class="project-card">
+          <div class="project-header" onclick="toggleContent('${id}')">
+            <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+              <div class="project-preview">📊</div>
+              <div class="project-info">
+                <div class="project-name">${project.name}</div>
+                <div class="project-desc">${project.desc.substring(0, 80)}${project.desc.length > 80 ? '...' : ''}</div>
+                <div class="project-tech">${project.tech.map(t => `<span class="tech-badge">${t}</span>`).join('')}</div>
+              </div>
+            </div>
+            <div class="project-arrow" id="arrow_${id}">▼</div>
+          </div>
+          <div class="project-content" id="content_${id}">
+            ${createImageGallery(project.images)}
+            <div class="project-impact">📌 ${project.impact}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function createPythonCard(project, index) {
+      const pdfUrl = PDF_BASE + encodeURIComponent(project.pdf);
+      const containerId = `pdf_${index}`;
+      
+      return `
+        <div class="project-card">
+          <div class="project-header" onclick="togglePDFContent('${containerId}', '${pdfUrl}', '${project.name.replace(/'/g, "\\'")}', ${index})">
+            <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+              <div class="project-preview">🐍</div>
+              <div class="project-info">
+                <div class="project-name">${project.name}</div>
+                <div class="project-desc">${project.desc}</div>
+                <div class="project-tech">${project.tech.map(t => `<span class="tech-badge">${t}</span>`).join('')}</div>
+              </div>
+            </div>
+            <div class="project-arrow" id="arrow_pdf_${index}">▼</div>
+          </div>
+          <div class="project-content" id="content_pdf_${index}">
+            <div id="${containerId}" class="pdf-container"></div>
+          </div>
+        </div>
+      `;
+    }
+
+    const loadedPDFs = new Map();
+    
+    window.togglePDFContent = function(containerId, pdfUrl, projectName, index) {
+      const content = document.getElementById(`content_pdf_${index}`);
+      const arrow = document.getElementById(`arrow_pdf_${index}`);
+      
+      if (content.classList.contains('expanded')) {
+        content.classList.remove('expanded');
+        arrow.style.transform = 'rotate(0deg)';
+      } else {
+        content.classList.add('expanded');
+        arrow.style.transform = 'rotate(180deg)';
+        
+        if (!loadedPDFs.has(containerId)) {
+          loadedPDFs.set(containerId, true);
+          const viewer = new PDFViewer(containerId, pdfUrl, projectName);
+          viewer.render();
+        }
+      }
+    }
+
+    window.toggleContent = function(id) {
+      const content = document.getElementById(`content_${id}`);
+      const arrow = document.getElementById(`arrow_${id}`);
+      if (content.classList.contains('expanded')) {
+        content.classList.remove('expanded');
+        arrow.style.transform = 'rotate(0deg)';
+      } else {
+        content.classList.add('expanded');
+        arrow.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    function openImageModal(imgUrl) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      modal.style.display = 'flex';
+      modalImg.src = imgUrl;
+    }
+    function closeImageModal() { document.getElementById('imageModal').style.display = 'none'; }
+    window.openImageModal = openImageModal;
+    window.closeImageModal = closeImageModal;
+
+    function renderPowerBISection() {
+      let html = `<div class="projects-grid">`;
+      powerBIDashboards.forEach((p, i) => html += createProjectCard(p, `dash_${i}`));
+      powerBICases.forEach((p, i) => html += createProjectCard(p, `case_${i}`));
+      html += `</div>`;
+      return html;
+    }
+
+    function renderSQLSection() {
+      let html = `<div class="projects-grid">`;
+      sqlProjects.forEach((p, i) => html += createProjectCard(p, `sql_${i}`));
+      html += `</div>`;
+      return html;
+    }
+
+    function renderPythonSection() {
+      let html = `<div class="projects-grid">`;
+      pythonProjects.forEach((p, i) => html += createPythonCard(p, i));
+      html += `</div>`;
+      return html;
+    }
+
+    let currentFilter = 'powerbi';
+    const powerBIContent = renderPowerBISection();
+    const sqlContent = renderSQLSection();
+    const pythonContent = renderPythonSection();
+    const container = document.getElementById('projectsContainer');
+
+    function updateDisplay(filter) {
+      if (filter === 'powerbi') container.innerHTML = powerBIContent;
+      else if (filter === 'sql') container.innerHTML = sqlContent;
+      else if (filter === 'python') container.innerHTML = pythonContent;
+      currentFilter = filter;
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        updateDisplay(this.dataset.filter);
+      });
+    });
+
+    updateDisplay('powerbi');
+
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'dark') html.setAttribute('data-theme', 'dark');
+    themeToggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const newTheme = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
+
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰'; });
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => { navLinks.classList.remove('active'); mobileToggle.textContent = '☰'; }));
+
+    window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => anchor.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }));
+
+    // Formspree Contact Form Handler
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        
+        formStatus.innerHTML = 'Sending...';
+        formStatus.style.color = '#3b82f6';
+        
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+          
+          if (response.ok) {
+            formStatus.innerHTML = '✅ Thank you! Your message has been sent. I will respond within 24 hours.';
+            formStatus.style.color = '#22c55e';
+            form.reset();
+          } else {
+            formStatus.innerHTML = '❌ Oops! Something went wrong. Please try again or email me directly.';
+            formStatus.style.color = '#ef4444';
+          }
+        } catch (error) {
+          formStatus.innerHTML = '❌ Network error. Please check your connection and try again.';
+          formStatus.style.color = '#ef4444';
+        }
+        
+        setTimeout(() => {
+          formStatus.innerHTML = '';
+        }, 5000);
+      });
+    }
+  </script>
+</body>
+</html>
